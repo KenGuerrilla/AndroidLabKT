@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.itl.kg.androidlabkt.MainFragment"
+        android:label="Lab List"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_customViewLab"
+            app:destination="@id/customViewLab" />
+    </fragment>
+    <fragment
+        android:id="@+id/customViewLab"
+        android:name="com.itl.kg.androidlabkt.customViewLab.CustomViewLab"
+        android:label="Custom View Lab"
+        tools:layout="@layout/fragment_custom_view_lab" />
+</navigation>

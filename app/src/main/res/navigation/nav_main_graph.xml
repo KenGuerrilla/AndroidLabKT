@@ -12,10 +12,18 @@
         <action
             android:id="@+id/action_mainFragment_to_customViewLab"
             app:destination="@id/customViewLab" />
+        <action
+            android:id="@+id/action_mainFragment_to_roomLabFragment"
+            app:destination="@id/roomLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
         android:name="com.itl.kg.androidlabkt.customViewLab.CustomViewLab"
         android:label="Custom View Lab"
         tools:layout="@layout/fragment_custom_view_lab" />
+    <fragment
+        android:id="@+id/roomLabFragment"
+        android:name="com.itl.kg.androidlabkt.roomLab.RoomLabFragment"
+        android:label="fragment_room_lab"
+        tools:layout="@layout/fragment_room_lab" />
 </navigation>

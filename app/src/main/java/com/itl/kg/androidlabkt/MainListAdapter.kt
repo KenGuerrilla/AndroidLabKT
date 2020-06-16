@@ -10,13 +10,11 @@ import com.itl.kg.androidlabkt.customViewLab.titleContentTextView.TitleContentTe
  *
  * Created by kenguerrilla on 2020/6/10.
  *
- * 實作List Item
- *
  */
 class MainListAdapter(list: List<LabItem>)
     : RecyclerView.Adapter<MainListAdapter.LabViewHolder>() {
 
-    var labList: List<LabItem> = list
+    private var labList: List<LabItem> = list
     var onItemOnClickListener: ItemOnClickListener? = null
 
     inner class LabViewHolder(view: View): RecyclerView.ViewHolder(view) {

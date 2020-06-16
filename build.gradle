@@ -14,6 +14,7 @@ buildscript {
         recyclerViewVersion = '1.1.0'
         materialVersion = '1.1.0'
         navigationVersion = '2.2.2'
+        roomVersion = '2.2.5'
         testExtJunit = '1.1.1'
     }
 

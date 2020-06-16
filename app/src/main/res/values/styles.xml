@@ -4,7 +4,19 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/color_ocean_blue</item>
         <item name="colorPrimaryDark">@color/light_blue_900</item>
-        <item name="colorAccent">@color/color_light_green</item>
+        <item name="colorAccent">@color/red_A200</item>
+    </style>
+
+    <style name="MaterialButtonWithOutline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+
+    </style>
+
+    <style name="MaterialTextButton" parent="Widget.MaterialComponents.Button.TextButton">
+
+    </style>
+    
+    <style name="MaterialTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
     </style>
 
 </resources>

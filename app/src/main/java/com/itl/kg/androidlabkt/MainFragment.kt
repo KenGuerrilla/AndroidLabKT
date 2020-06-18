@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
  *
+ * AndroidLabKT專案運作方法說明如下
  *  1. MainFragment使用Navigation Component管理個畫面之間的切換作業
  *  2. 透過LabListConfig提供LabItem物件給RecyclerView顯示
  *  3. 由Adapter的OnItemClickListener提供指定Position的LabItem物件
@@ -19,7 +20,6 @@ import kotlinx.android.synthetic.main.fragment_main.*
  *
  * 備註
  * a. __name__Directions 物件由編譯器產生，關鍵字 androidx.navigation.safeargs.kotlin
- *
  *
  */
 

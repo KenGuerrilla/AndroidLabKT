@@ -4,7 +4,7 @@ package com.itl.kg.androidlabkt.roomLab.data
  *
  * Created by kenguerrilla on 2020/6/15.
  *
- * RoomLabRepository為資料來源的實作，如果需要因應情境實作不同來源，可將實作抽象為interface再進行實作
+ * RoomLabRepository為資料來源的實作
  *
  */
 

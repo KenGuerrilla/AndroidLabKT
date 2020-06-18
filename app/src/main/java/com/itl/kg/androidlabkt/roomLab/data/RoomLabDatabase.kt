@@ -10,10 +10,10 @@ import androidx.room.TypeConverters
  *
  * Created by kenguerrilla on 2020/6/12.
  *
- * 此處指定Database的Entities與版本資訊等供Compiler產生實作，說明如下
+ * Database為設定所關聯的Entities與版本資訊等供Compiler產生實作，說明如下
  *  1. Database標籤設定entities與資料庫版本
  *  2. TypeConverters標籤指定資料格式轉換的Converters
- *  3. 定義一個抽象方法讓Compiler產生實作
+ *  3. 定義一個回傳Dao介面的抽象方法讓Compiler產生實作
  *  4. 透過伴生物件 (companion object) 來實作單例模式
  *  5. Room.databaseBuilder().addCallback()可設定當Database建立完成後需要實作的工作
  *

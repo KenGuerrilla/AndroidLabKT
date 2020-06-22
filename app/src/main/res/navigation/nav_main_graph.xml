@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_roomLabFragment"
             app:destination="@id/roomLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bottomSheetLabFragment"
+            app:destination="@id/bottomSheetLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -26,4 +29,9 @@
         android:name="com.itl.kg.androidlabkt.roomLab.RoomLabFragment"
         android:label="fragment_room_lab"
         tools:layout="@layout/fragment_room_lab" />
+    <fragment
+        android:id="@+id/bottomSheetLabFragment"
+        android:name="com.itl.kg.androidlabkt.bottomSheetLab.BottomSheetLabFragment"
+        android:label="fragment_bottom_sheet_lab"
+        tools:layout="@layout/fragment_bottom_sheet_lab" />
 </navigation>

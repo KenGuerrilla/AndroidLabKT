@@ -30,6 +30,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
 
     // Room 一定要加這一行，否則無法自動產生 AppDatabase_Impl
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"

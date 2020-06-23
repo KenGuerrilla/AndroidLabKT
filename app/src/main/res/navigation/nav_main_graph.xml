@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_mainFragment_to_bottomSheetLabFragment"
             app:destination="@id/bottomSheetLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_layoutBehaviorLabFragment"
+            app:destination="@id/layoutBehaviorLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -27,11 +30,16 @@
     <fragment
         android:id="@+id/roomLabFragment"
         android:name="com.itl.kg.androidlabkt.roomLab.RoomLabFragment"
-        android:label="fragment_room_lab"
+        android:label="Room Lab demo"
         tools:layout="@layout/fragment_room_lab" />
     <fragment
         android:id="@+id/bottomSheetLabFragment"
         android:name="com.itl.kg.androidlabkt.bottomSheetLab.BottomSheetLabFragment"
-        android:label="fragment_bottom_sheet_lab"
+        android:label="Bottom Sheet fullscreen demo"
         tools:layout="@layout/fragment_bottom_sheet_lab" />
+    <fragment
+        android:id="@+id/layoutBehaviorLabFragment"
+        android:name="com.itl.kg.androidlabkt.layoutBehaviorLab.LayoutBehaviorLabFragment"
+        android:label="Layout Behavior Lab Demo"
+        tools:layout="@layout/fragment_layout_behavior_lab" />
 </navigation>

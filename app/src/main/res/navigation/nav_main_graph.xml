@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_mainFragment_to_layoutBehaviorLabFragment"
             app:destination="@id/layoutBehaviorLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_biometricsLabFragment"
+            app:destination="@id/biometricsLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -42,4 +45,9 @@
         android:name="com.itl.kg.androidlabkt.layoutBehaviorLab.LayoutBehaviorLabFragment"
         android:label="Layout Behavior Lab Demo"
         tools:layout="@layout/fragment_layout_behavior_lab" />
+    <fragment
+        android:id="@+id/biometricsLabFragment"
+        android:name="com.itl.kg.androidlabkt.biometricsLab.BiometricsLabFragment"
+        android:label="Biometrics Lab"
+        tools:layout="@layout/fragment_biometrics_lab" />
 </navigation>

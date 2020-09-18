@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_mainFragment_to_biometricsLabFragment"
             app:destination="@id/biometricsLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_workManagerLabFragment"
+            app:destination="@id/workManagerLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -50,4 +53,9 @@
         android:name="com.itl.kg.androidlabkt.biometricsLab.BiometricsLabFragment"
         android:label="Biometrics Lab"
         tools:layout="@layout/fragment_biometrics_lab" />
+    <fragment
+        android:id="@+id/workManagerLabFragment"
+        android:name="com.itl.kg.androidlabkt.workManagerLab.WorkManagerLabFragment"
+        android:label="Work Manager Lab"
+        tools:layout="@layout/fragment_work_manager_lab" />
 </navigation>

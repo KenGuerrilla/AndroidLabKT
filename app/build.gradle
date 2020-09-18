@@ -76,4 +76,7 @@ dependencies {
     // BiometricPrompt
     implementation "androidx.biometric:biometric:$rootProject.biometricVersion"
 
+    // WorkManager
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
+
 }

@@ -13,7 +13,8 @@ val labList: List<LabItem> = mutableListOf(
     LabItem("RoomLab", "Room與MVVM示範", MainFragmentDirections.actionMainFragmentToRoomLabFragment()),
     LabItem("BottomSheetDialogFragmentLab", "BottomSheet範例", MainFragmentDirections.actionMainFragmentToBottomSheetLabFragment()),
     LabItem("LayoutBehaviorLab", "Layout Behavior連動示範", MainFragmentDirections.actionMainFragmentToLayoutBehaviorLabFragment()),
-    LabItem("BioAuthLab", "Biometrics Auth範例", MainFragmentDirections.actionMainFragmentToBiometricsLabFragment())
+    LabItem("BioAuthLab", "Biometrics Auth範例", MainFragmentDirections.actionMainFragmentToBiometricsLabFragment()),
+    LabItem("WorkManagerLab", "Work Manager 範例", MainFragmentDirections.actionMainFragmentToWorkManagerLabFragment())
 )
 
 data class LabItem(val title: String, val desc: String, val nav: NavDirections)

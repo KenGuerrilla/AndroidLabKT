@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_mainFragment_to_workManagerLabFragment"
             app:destination="@id/workManagerLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_keyFrameAnimationsLabFragment"
+            app:destination="@id/keyFrameAnimationsLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -58,4 +61,9 @@
         android:name="com.itl.kg.androidlabkt.workManagerLab.WorkManagerLabFragment"
         android:label="Work Manager Lab"
         tools:layout="@layout/fragment_work_manager_lab" />
+    <fragment
+        android:id="@+id/keyFrameAnimationsLabFragment"
+        android:name="com.itl.kg.androidlabkt.keyFrameAnimLab.KeyFrameAnimationsLabFragment"
+        android:label="fragment_key_frame_animations_lab_end"
+        tools:layout="@layout/fragment_key_frame_animations_lab_start" />
 </navigation>

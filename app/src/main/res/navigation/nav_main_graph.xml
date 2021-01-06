@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_mainFragment_to_keyFrameAnimationsLabFragment"
             app:destination="@id/keyFrameAnimationsLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_serviceLabFragment"
+            app:destination="@id/serviceLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -64,6 +67,11 @@
     <fragment
         android:id="@+id/keyFrameAnimationsLabFragment"
         android:name="com.itl.kg.androidlabkt.keyFrameAnimLab.KeyFrameAnimationsLabFragment"
-        android:label="fragment_key_frame_animations_lab_end"
+        android:label="Key Frame Animations Lab"
         tools:layout="@layout/fragment_key_frame_animations_lab_start" />
+    <fragment
+        android:id="@+id/serviceLabFragment"
+        android:name="com.itl.kg.androidlabkt.serviceLab.ServiceLabFragment"
+        android:label="Service Lab"
+        tools:layout="@layout/fragment_service_lab" />
 </navigation>

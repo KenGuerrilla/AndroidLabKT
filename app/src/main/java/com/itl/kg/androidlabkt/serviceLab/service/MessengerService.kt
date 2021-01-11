@@ -15,6 +15,7 @@ import java.util.*
  *  透過Handler的方式來啟動或停止計數
  *
  *  a. 這邊依照官方範例實作單向控制，如果要雙向就必須在ServiceLabFragment也實作一個Messenger
+ *  b. 由於Messenger僅能傳遞Int，因此需要傳遞String的訊息需要使用Broadcasts
  */
 
 const val SERVICE_LAB_START_RECORD = 1
@@ -81,7 +82,10 @@ class MessengerService : Service(), RecordTimeInterface {
     }
 
 
-    // 由於internal為一個獨立的class，因此透過RecordTimeInterface來回應Handler接收到的訊息
+    /**
+     *  由於internal為一個獨立的class，因此透過RecordTimeInterface來回應Handler接收到的訊息
+     *  !!! Messenger 方案僅能傳遞 Int !!!
+     */
     internal class MessengerIncomingHandler(
         private val callbackHandler: RecordTimeInterface
     ) : Handler() {

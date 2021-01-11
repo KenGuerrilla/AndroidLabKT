@@ -3,17 +3,16 @@ package com.itl.kg.androidlabkt.serviceLab.service
 import android.app.*
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.itl.kg.androidlabkt.MainActivity
 import com.itl.kg.androidlabkt.serviceLab.ServiceLabFragment
 import kotlinx.coroutines.*
 
 /**
- *  Foreground Service 為 Android 8 (26)+ 之功能
+ *  Foreground Service 於 Android 9(API 28) 需要像系統請求權限，否則會彈出 SecurityException
+ *
  *  使用時透過 startForeground(ONGOING_NOTIFICATION_ID, notification) 來啟動
  *
  *  當啟動Service時，可以透過前景Notification來通知使用者背景正在執行Service
@@ -21,7 +20,7 @@ import kotlinx.coroutines.*
  *  參考文件：https://developer.android.com/guide/components/foreground-services
  */
 
-class ForegroundServiceLab: Service() {
+class ForegroundService: Service() {
 
     companion object {
         const val DEVICE_TARGET = 26
@@ -117,7 +116,7 @@ class ForegroundServiceLab: Service() {
     @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun updateNotification(message: String) {
         coroutineScope {
-            val notification = Notification.Builder(this@ForegroundServiceLab, CHANNEL_DEFAULT_IMPORTANCE)
+            val notification = Notification.Builder(this@ForegroundService, CHANNEL_DEFAULT_IMPORTANCE)
                 .setContentTitle("AndroidLabKT Notification Title")
                 .setContentText(message)
                 .setSmallIcon(android.R.drawable.stat_sys_warning)

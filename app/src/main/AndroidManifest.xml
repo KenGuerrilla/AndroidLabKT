@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".serviceLab.service.ForegroundServiceLab"/>
+        <service android:name=".serviceLab.service.ForegroundService"/>
+        <service android:name=".serviceLab.service.BoundService"/>
+        <service android:name=".serviceLab.service.MessengerService"/>
     </application>
 
 </manifest>

@@ -3,49 +3,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".serviceLab.ServiceLabFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:fillViewport="true">
 
-        <Button
-            android:id="@+id/mStartForegroundServiceBt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start Foreground Service"
-            android:textAllCaps="false"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/mStopForegroundServiceBtn"
-            />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:gravity="center">
 
-        <Button
-            android:id="@+id/mStopForegroundServiceBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Stop Foreground Service"
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/mStartForegroundServiceBt"
-            app:layout_constraintStart_toStartOf="@id/mStartForegroundServiceBt"
-            app:layout_constraintEnd_toEndOf="@id/mStartForegroundServiceBt"
-            app:layout_constraintBottom_toTopOf="@id/mCheckDeviceSdkBtn"
-            />
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="2dp"
+               android:background="@color/grey_200"
+               android:layout_marginStart="8dp"
+               android:layout_marginEnd="8dp"/>
 
-        <Button
-            android:id="@+id/mCheckDeviceSdkBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Device Version"
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/mStopForegroundServiceBtn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/mStartForegroundServiceBt"
-            app:layout_constraintEnd_toEndOf="@id/mStartForegroundServiceBt"
-            />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Notification Foreground Service"
+               android:layout_margin="8dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+           <Button
+               android:id="@+id/mStartForegroundServiceBt"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Start Foreground Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp" />
+
+           <Button
+               android:id="@+id/mStopForegroundServiceBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Stop Foreground Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="2dp"
+               android:background="@color/grey_200"
+               android:layout_marginStart="8dp"
+               android:layout_marginEnd="8dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Bind Background Service"
+               android:layout_margin="8dp" />
+
+           <Button
+               android:id="@+id/mBindBackgroundServiceBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Bind Background Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <Button
+               android:id="@+id/mUnbindBackgroundServiceBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Unbind Background Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="2dp"
+               android:background="@color/grey_200"
+               android:layout_marginStart="8dp"
+               android:layout_marginEnd="8dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Messenger Communicate"
+               android:layout_margin="8dp" />
+
+           <Button
+               android:id="@+id/mBindMessengerServiceBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Bind Messenger Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <Button
+               android:id="@+id/mSendStartRecordBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Start Recode Time"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <Button
+               android:id="@+id/mSendStopRecordBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Stop Recode Time"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <Button
+               android:id="@+id/mUnbindMessengerServiceBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Unbind Messenger Service"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="2dp"
+               android:background="@color/grey_200"
+               android:layout_marginStart="8dp"
+               android:layout_marginEnd="8dp"/>
+
+           <Button
+               android:id="@+id/mCheckDeviceSdkBtn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Show Device Version"
+               android:textAllCaps="false"
+               android:layout_margin="8dp"
+               />
+
+       </LinearLayout>
+
+   </androidx.core.widget.NestedScrollView>
+
 </FrameLayout>

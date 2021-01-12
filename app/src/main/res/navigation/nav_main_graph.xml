@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_mainFragment_to_serviceLabFragment"
             app:destination="@id/serviceLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_broadcastsLabFragment"
+            app:destination="@id/broadcastsLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -74,4 +77,9 @@
         android:name="com.itl.kg.androidlabkt.serviceLab.ServiceLabFragment"
         android:label="Service Lab"
         tools:layout="@layout/fragment_service_lab" />
+    <fragment
+        android:id="@+id/broadcastsLabFragment"
+        android:name="com.itl.kg.androidlabkt.broadcastsLab.BroadcastsLabFragment"
+        android:label="fragment_broadcasts_lab"
+        tools:layout="@layout/fragment_broadcasts_lab" />
 </navigation>

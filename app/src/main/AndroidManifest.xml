@@ -21,6 +21,16 @@
         <service android:name=".serviceLab.service.ForegroundService"/>
         <service android:name=".serviceLab.service.BoundService"/>
         <service android:name=".serviceLab.service.MessengerService"/>
+
+        <!-- API Level 24 使用 Manifest 指定 BroadcastsReceiver 有相關限制-->
+        <!-- 參考資料：https://developer.android.com/guide/components/broadcast-exceptions  -->
+<!--        <receiver android:name=".broadcastsLab.receiver.ManifestsDeclaredReceiver" android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+<!--                <action android:name="android.intent.action.AIRPLANE_MODE"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
     </application>
 
 </manifest>

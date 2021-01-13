@@ -64,8 +64,8 @@ class ServiceLabFragment : Fragment() {
 
     private val mBoundConnection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
-            val binder = service as BoundService.LabBinder
-            mBoundService = binder.getService()
+//            val binder = service as BoundService.LabBinder
+//            mBoundService = binder.getService()
             isBoundServiceActivated = true
         }
 

@@ -22,8 +22,8 @@ class BoundService : Service() {
 
     private val binder = LabBinder()
 
-    var job: Job? = null
-    lateinit var startDate: Date
+    private var job: Job? = null
+    private lateinit var startDate: Date
 
     private val timeTools = TimeCalculateTool()
 

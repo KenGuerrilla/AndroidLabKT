@@ -21,6 +21,7 @@
         <service android:name=".serviceLab.service.ForegroundService"/>
         <service android:name=".serviceLab.service.BoundService"/>
         <service android:name=".serviceLab.service.MessengerService"/>
+        <service android:name=".broadcastsLab.CountingDownService"/>
 
         <!-- API Level 24 使用 Manifest 指定 BroadcastsReceiver 有相關限制-->
         <!-- 參考資料：https://developer.android.com/guide/components/broadcast-exceptions  -->

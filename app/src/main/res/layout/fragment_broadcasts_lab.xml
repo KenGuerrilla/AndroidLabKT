@@ -3,72 +3,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".broadcastsLab.BroadcastsLabFragment">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/mReceiverIncomingMessageTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="When the airplane mode was changed"
-            android:textSize="16sp"
-            android:layout_margin="8dp"
-            />
-
-        <Button
-            android:id="@+id/mRegisterBroadcastBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Register Broadcast Receiver"
-            android:textAllCaps="false"
-            android:layout_margin="8dp"
-            />
-
-        <Button
-            android:id="@+id/mUnregisterBroadcastBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Unregister Broadcast Receiver"
-            android:textAllCaps="false"
-            android:layout_margin="8dp"
-            />
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/grey_200"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Need keep the receiver longer in background"
-            android:textSize="16sp"
-            android:layout_margin="8dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="When the airplane mode was changed"
+                android:textSize="16sp"
+                android:layout_margin="8dp" />
 
-        <Button
-            android:id="@+id/mRegisterPendingReceiverBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Register Pending Receiver"
-            android:textAllCaps="false"
-            android:layout_margin="8dp" />
+            <Button
+                android:id="@+id/mRegisterBroadcastBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register System Broadcast Receiver"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
 
-        <Button
-            android:id="@+id/mUnregisterPendingReceiverBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Unregister Pending Receiver"
-            android:textAllCaps="false"
-            android:layout_margin="8dp" />
+            <Button
+                android:id="@+id/mUnregisterBroadcastBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unregister System Broadcast Receiver"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
 
-    </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_200"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Need keep the receiver longer in background"
+                android:textSize="16sp"
+                android:layout_margin="8dp" />
+
+            <Button
+                android:id="@+id/mRegisterPendingReceiverBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Pending Receiver"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
+
+            <Button
+                android:id="@+id/mUnregisterPendingReceiverBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unregister Pending Receiver"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_200"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send a broadcast then counting down in log"
+                android:textSize="16sp"
+                android:layout_margin="8dp" />
+
+            <Button
+                android:id="@+id/mBindCustomReceiverServiceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bind Custom Service"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
+
+            <Button
+                android:id="@+id/mSendCustomBroadcastBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send Broadcast to Receiver"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
+
+            <Button
+                android:id="@+id/mUnbindCustomReceiverServiceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unbind Custom Service"
+                android:textAllCaps="false"
+                android:layout_margin="8dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </FrameLayout>

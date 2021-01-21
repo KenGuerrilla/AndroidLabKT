@@ -9,11 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.itl.kg.androidlabkt.R
+import com.itl.kg.androidlabkt.databinding.FragmentRoomLabBinding
 import com.itl.kg.androidlabkt.roomLab.data.RoomLabDataItem
 import com.itl.kg.androidlabkt.roomLab.utilities.InjectorUtils
 import com.itl.kg.androidlabkt.roomLab.viewModel.RoomLabDataViewModel
-import kotlinx.android.synthetic.main.fragment_room_lab.*
 
 /**
  *
@@ -57,7 +56,10 @@ import kotlinx.android.synthetic.main.fragment_room_lab.*
 
 class RoomLabFragment : Fragment() {
 
-    private var adapter: RoomLabListAdapter? = null
+    private var _binding: FragmentRoomLabBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var adapter: RoomLabListAdapter
 
     private val viewModel: RoomLabDataViewModel by viewModels {
         InjectorUtils.provideRoomLabDataViewModelFactory(requireContext())
@@ -67,7 +69,13 @@ class RoomLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_room_lab, container, false)
+        _binding = FragmentRoomLabBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     // View物件參數的初始化應實作晚於或此處，早於onViewCreated則會有NPE的問題
@@ -78,10 +86,10 @@ class RoomLabFragment : Fragment() {
     }
 
     private fun initView() {
-        roomLab_add_button.setOnClickListener {
-            val item = RoomLabDataItem(roomLab_editText.text.toString())
+        binding.roomLabAddButton.setOnClickListener {
+            val item = RoomLabDataItem(binding.roomLabEditText.text.toString())
             viewModel.addDataItem(item)
-            roomLab_editText.editableText.clear()
+            binding.roomLabEditText.editableText.clear()
         }
         initRecyclerView()
     }
@@ -89,14 +97,14 @@ class RoomLabFragment : Fragment() {
     private fun initRecyclerView() {
         adapter = RoomLabListAdapter(listOf())
 
-        adapter?.itemClickListener = object : RoomLabDataListAdapterOnItemClickListener {
+        adapter.itemClickListener = object : RoomLabDataListAdapterOnItemClickListener {
             override fun onItemClick(item: RoomLabDataItem, position: Int) {
                 viewModel.deleteItem(item)
             }
         }
 
         // Init RecyclerView
-        roomLab_recyclerView.also {
+        binding.roomLabRecyclerView.also {
             it.addItemDecoration(
                 DividerItemDecoration(
                     requireContext(),
@@ -111,8 +119,8 @@ class RoomLabFragment : Fragment() {
     private fun subscribeUi() {
         // Subscribe LiveData
         viewModel.getDataItemList().observe(viewLifecycleOwner, Observer { list ->
-            adapter?.dataList = list
-            adapter?.notifyDataSetChanged()
+            adapter.dataList = list
+            adapter.notifyDataSetChanged()
         })
     }
 

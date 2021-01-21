@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.itl.kg.androidlabkt.R
-import kotlinx.android.synthetic.main.fragment_bottom_sheet_lab.*
+import com.itl.kg.androidlabkt.databinding.FragmentBottomSheetLabBinding
 
 /**
  *
@@ -18,12 +17,15 @@ import kotlinx.android.synthetic.main.fragment_bottom_sheet_lab.*
 
 class BottomSheetLabFragment : Fragment() {
 
+    private var _binding: FragmentBottomSheetLabBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bottom_sheet_lab, container, false)
+        _binding = FragmentBottomSheetLabBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,8 +33,13 @@ class BottomSheetLabFragment : Fragment() {
         initView()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initView() {
-        bottomSheetLab_show_button.setOnClickListener {
+        binding.mBottomSheetLabShowButton.setOnClickListener {
             showBottomSheet()
         }
     }

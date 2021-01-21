@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_main.*
+import com.itl.kg.androidlabkt.databinding.FragmentMainBinding
 
 /**
  *
@@ -25,18 +24,27 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
 
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var adapter: MainListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun initView() {
@@ -49,7 +57,7 @@ class MainFragment : Fragment() {
             }
         }
 
-        mainFragment_recyclerView.also {
+        binding.mainFragmentRecyclerView.also {
             it.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
             it.layoutManager = LinearLayoutManager(requireContext())
             it.adapter = adapter

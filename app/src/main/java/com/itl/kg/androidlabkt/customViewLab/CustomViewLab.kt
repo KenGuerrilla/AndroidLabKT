@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.itl.kg.androidlabkt.R
-import kotlinx.android.synthetic.main.fragment_custom_view_lab.*
+import com.itl.kg.androidlabkt.databinding.FragmentCustomViewLabBinding
 
 /**
  *
@@ -30,17 +29,26 @@ import kotlinx.android.synthetic.main.fragment_custom_view_lab.*
 
 class CustomViewLab : Fragment() {
 
+    private var _binding: FragmentCustomViewLabBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_custom_view_lab, container, false)
+        _binding = FragmentCustomViewLabBinding.inflate(inflater, container ,false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onResume() {
         super.onResume()
-        customViewLab_textViewA.setTitle("Resume title")
-        customViewLab_textViewA.setContent("Resume Content")
+        binding.customViewLabTextViewA.setTitle("Resume title")
+        binding.customViewLabTextViewA.setContent("Resume Content")
     }
 
 }

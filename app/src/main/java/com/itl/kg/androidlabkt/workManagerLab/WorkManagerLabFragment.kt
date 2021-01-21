@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.work.*
-import com.itl.kg.androidlabkt.R
-import kotlinx.android.synthetic.main.fragment_work_manager_lab.*
+import com.itl.kg.androidlabkt.databinding.FragmentWorkManagerLabBinding
 import java.util.concurrent.TimeUnit
 
 /**
@@ -17,6 +16,9 @@ import java.util.concurrent.TimeUnit
  */
 
 class WorkManagerLabFragment : Fragment() {
+
+    private var _binding: FragmentWorkManagerLabBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         val TAG = WorkManagerLabFragment::class.java.simpleName
@@ -29,8 +31,13 @@ class WorkManagerLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_work_manager_lab, container, false)
+        _binding = FragmentWorkManagerLabBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,11 +49,11 @@ class WorkManagerLabFragment : Fragment() {
 
     private fun initListener() {
 
-        mTaskStartBtn.setOnClickListener {
+        binding.mTaskStartBtn.setOnClickListener {
             initTaskManager()
         }
 
-        mTaskCheckBtn.setOnClickListener {
+        binding.mTaskCheckBtn.setOnClickListener {
 
         }
 

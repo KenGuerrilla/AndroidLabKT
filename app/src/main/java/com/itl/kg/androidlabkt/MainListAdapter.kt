@@ -5,25 +5,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.itl.kg.androidlabkt.customViewLab.titleContentTextView.TitleContentTextView
+import com.itl.kg.androidlabkt.databinding.ListLabItemBinding
 
-/**
- *
- * Created by kenguerrilla on 2020/6/10.
- *
- */
+
 class MainListAdapter(list: List<LabItem>)
     : RecyclerView.Adapter<MainListAdapter.LabViewHolder>() {
+
+    private lateinit var binding: ListLabItemBinding
 
     private var labList: List<LabItem> = list
     var onItemOnClickListener: ItemOnClickListener? = null
 
-    inner class LabViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val cvTextVIew: TitleContentTextView = view.findViewById(R.id.list_lab_titleContentTextView)
-    }
+    inner class LabViewHolder(
+        val itemBinding: ListLabItemBinding
+    ): RecyclerView.ViewHolder(itemBinding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LabViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_lab_item, parent, false)
-        return LabViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        binding = ListLabItemBinding.inflate(inflater, parent, false)
+        return LabViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +35,7 @@ class MainListAdapter(list: List<LabItem>)
             onItemOnClickListener?.onItemClick(labList[position], holder.itemView)
         }
 
-        holder.cvTextVIew.also {
+        holder.itemBinding.listLabTitleContentTextView .also {
             it.setTitle(labList[position].title)
             it.setContent(labList[position].desc)
         }

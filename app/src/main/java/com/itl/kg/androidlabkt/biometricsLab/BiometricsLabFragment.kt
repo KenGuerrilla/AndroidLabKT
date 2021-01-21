@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.itl.kg.androidlabkt.R
 import com.itl.kg.androidlabkt.biometricsLab.mvvm.BioLabFragmentViewModel
 import com.itl.kg.androidlabkt.biometricsLab.mvvm.BioLabFragmentViewModelFactory
-import kotlinx.android.synthetic.main.fragment_biometrics_lab.*
+import com.itl.kg.androidlabkt.databinding.FragmentBiometricsLabBinding
 
 /**
  *
@@ -23,6 +22,9 @@ import kotlinx.android.synthetic.main.fragment_biometrics_lab.*
 
 class BiometricsLabFragment : Fragment() {
 
+    private var _binding: FragmentBiometricsLabBinding? = null
+    private val binding get() = _binding!!
+
     private val viewModel by viewModels<BioLabFragmentViewModel> {
         BioLabFragmentViewModelFactory()
     }
@@ -31,7 +33,9 @@ class BiometricsLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_biometrics_lab, container, false)
+        _binding = FragmentBiometricsLabBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +43,7 @@ class BiometricsLabFragment : Fragment() {
 
         initLiveDate()
 
-        mStartBiometricsBtn.setOnClickListener {
+        binding.mStartBiometricsBtn.setOnClickListener {
             viewModel.startBioAuth(requireActivity(),
                 "這是Title",
                 "這是SubTitle",
@@ -52,10 +56,15 @@ class BiometricsLabFragment : Fragment() {
         initCheckSupportStatus()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initCheckSupportStatus() {
 
         val status = viewModel.checkDeviceSupport(requireContext())
-        mBioStatusTv.text = viewModel.parserStatusErrorCode(requireContext(), status)
+        binding.mBioStatusTv.text = viewModel.parserStatusErrorCode(requireContext(), status)
 
     }
 
@@ -63,7 +72,7 @@ class BiometricsLabFragment : Fragment() {
         viewModel.getAuthResultLiveData().observe(viewLifecycleOwner, Observer {
 
             val authResult = viewModel.parserAuthErrorCode(requireContext(), it)
-            mBioStatusTv.text = authResult
+            binding.mBioStatusTv.text = authResult
 
         })
     }

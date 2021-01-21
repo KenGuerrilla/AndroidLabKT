@@ -10,21 +10,30 @@ import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.itl.kg.androidlabkt.R
+import com.itl.kg.androidlabkt.databinding.BottomSheetDemoLayoutBinding
 
 /**
  *
  * Created by kenguerrilla on 2020/6/22.
  *
  */
-class MyBottomSheetDialogFragment() : BottomSheetDialogFragment() {
+class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
+
+    private var _binding: BottomSheetDemoLayoutBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.bottom_sheet_demo_layout, container, false)
+        _binding = BottomSheetDemoLayoutBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

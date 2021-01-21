@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.transition.TransitionManager
 import com.itl.kg.androidlabkt.R
+import com.itl.kg.androidlabkt.databinding.FragmentKeyFrameAnimationsLabStartBinding
 
 /**
  *  ConstraintLayout簡易View元件動畫
@@ -20,7 +21,9 @@ import com.itl.kg.androidlabkt.R
 
 class KeyFrameAnimationsLabFragment : Fragment() {
 
-    lateinit var constraintLayout: ConstraintLayout
+    private var _binding: FragmentKeyFrameAnimationsLabStartBinding? = null
+    private val binding get() = _binding!!
+
     lateinit var button: Button
     private var isBottom = false
 
@@ -28,33 +31,39 @@ class KeyFrameAnimationsLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentKeyFrameAnimationsLabStartBinding.inflate(inflater, container, false)
+        initListener()
+        return binding.root
+    }
 
-        val view = inflater.inflate(R.layout.fragment_key_frame_animations_lab_start, container, false)
-        constraintLayout = view.findViewById(R.id.animationsConstraintLayout)
-        button = view.findViewById(R.id.button)
-        button.setOnClickListener {
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun initListener() {
+        binding.button.setOnClickListener {
             if (isBottom) {
                 animateToKeyframeOne()
             } else {
                 animateToKeyframeTwo()
             }
         }
-        return view
     }
 
     private fun animateToKeyframeOne() {
         val constraintSet = ConstraintSet()
         constraintSet.load(requireActivity(), R.layout.fragment_key_frame_animations_lab_start)
-        TransitionManager.beginDelayedTransition(constraintLayout)
-        constraintSet.applyTo(constraintLayout)
+        TransitionManager.beginDelayedTransition(binding.animationsConstraintLayout)
+        constraintSet.applyTo(binding.animationsConstraintLayout)
         isBottom = false
     }
 
     private fun animateToKeyframeTwo() {
         val constraintSet = ConstraintSet()
         constraintSet.load(requireActivity(), R.layout.fragment_key_frame_animations_lab_end)
-        TransitionManager.beginDelayedTransition(constraintLayout)
-        constraintSet.applyTo(constraintLayout)
+        TransitionManager.beginDelayedTransition(binding.animationsConstraintLayout)
+        constraintSet.applyTo(binding.animationsConstraintLayout)
         isBottom = true
     }
 

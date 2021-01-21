@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.itl.kg.androidlabkt.R
+import com.itl.kg.androidlabkt.databinding.FragmentServiceLabBinding
 import com.itl.kg.androidlabkt.serviceLab.service.*
 
 /**
@@ -25,20 +26,9 @@ import com.itl.kg.androidlabkt.serviceLab.service.*
 
 class ServiceLabFragment : Fragment() {
 
-    private lateinit var btStartForegroundService: Button
-    private lateinit var btStopForegroundService: Button
+    private var _binding: FragmentServiceLabBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var btBindService: Button
-    private lateinit var btUnBindService: Button
-
-    private lateinit var btBindMessengerService: Button
-    private lateinit var btSendStartRecordTime: Button
-    private lateinit var btSendStopRecordTime: Button
-    private lateinit var btUnbindMessengerService: Button
-
-    private lateinit var btShowDeviceSdk: Button
-
-    private lateinit var mBoundService: BoundService
     private var isBoundServiceActivated = false
 
     private var mServiceMessenger: Messenger? = null
@@ -92,63 +82,52 @@ class ServiceLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_service_lab, container, false)
 
-        initView(view)
+        _binding = FragmentServiceLabBinding.inflate(inflater, container, false)
         initClickListener()
 
-        return view
+        return binding.root
     }
 
-    private fun initView(view: View) {
-        btStartForegroundService = view.findViewById(R.id.mStartForegroundServiceBt)
-        btStopForegroundService = view.findViewById(R.id.mStopForegroundServiceBtn)
-
-        btBindService = view.findViewById(R.id.mBindBackgroundServiceBtn)
-        btUnBindService = view.findViewById(R.id.mUnbindBackgroundServiceBtn)
-
-        btBindMessengerService = view.findViewById(R.id.mBindMessengerServiceBtn)
-        btSendStartRecordTime = view.findViewById(R.id.mSendStartRecordBtn)
-        btSendStopRecordTime = view.findViewById(R.id.mSendStopRecordBtn)
-        btUnbindMessengerService = view.findViewById(R.id.mUnbindMessengerServiceBtn)
-
-        btShowDeviceSdk = view.findViewById(R.id.mCheckDeviceSdkBtn)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun initClickListener() {
-        btStartForegroundService.setOnClickListener {
+        binding.mStartForegroundServiceBt.setOnClickListener {
             startForegroundService()
         }
 
-        btStopForegroundService.setOnClickListener {
+        binding.mStopForegroundServiceBtn.setOnClickListener {
             stopForegroundService()
         }
 
-        btBindService.setOnClickListener {
+        binding.mBindBackgroundServiceBtn.setOnClickListener {
             startBindService()
         }
 
-        btUnBindService.setOnClickListener {
+        binding.mUnbindBackgroundServiceBtn.setOnClickListener {
             stopBindService()
         }
 
-        btBindMessengerService.setOnClickListener {
+        binding.mBindMessengerServiceBtn.setOnClickListener {
             bindMessengerService()
         }
 
-        btSendStartRecordTime.setOnClickListener {
+        binding.mSendStartRecordBtn.setOnClickListener {
             sendStartRecordTime()
         }
 
-        btSendStopRecordTime.setOnClickListener {
+        binding.mSendStopRecordBtn.setOnClickListener {
             sendStopRecordTime()
         }
 
-        btUnbindMessengerService.setOnClickListener {
+        binding.mUnbindMessengerServiceBtn.setOnClickListener {
             unbindMessengerService()
         }
 
-        btShowDeviceSdk.setOnClickListener {
+        binding.mCheckDeviceSdkBtn.setOnClickListener {
             showDeviceApiLevel()
         }
 
@@ -210,7 +189,7 @@ class ServiceLabFragment : Fragment() {
                 e.printStackTrace()
             }
         } else {
-            showMessage("MessengerService is activated")
+            showMessage("MessengerService is not activate")
         }
     }
 
@@ -223,7 +202,7 @@ class ServiceLabFragment : Fragment() {
                 e.printStackTrace()
             }
         } else {
-            showMessage("MessengerService is activated")
+            showMessage("MessengerService is not activate")
         }
     }
 

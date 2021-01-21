@@ -7,12 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.itl.kg.androidlabkt.roomLab.data.RoomLabDataItem
 
-/**
- *
- * Created by kenguerrilla on 2020/6/12.
- *
- */
-
 class RoomLabListAdapter (list: List<RoomLabDataItem>)
     : RecyclerView.Adapter<RoomLabListAdapter.RoomLabViewHolder>() {
 
@@ -27,6 +21,7 @@ class RoomLabListAdapter (list: List<RoomLabDataItem>)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomLabViewHolder {
+        // 使用simple_list_item_2 layout，無對應產生的binding class，因此使用findViewById
         val view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_2, parent, false)
         return RoomLabViewHolder(view)
     }

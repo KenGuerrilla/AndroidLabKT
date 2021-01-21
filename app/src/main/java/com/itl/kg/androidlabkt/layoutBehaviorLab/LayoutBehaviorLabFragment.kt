@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.itl.kg.androidlabkt.R
+import com.itl.kg.androidlabkt.databinding.FragmentLayoutBehaviorLabBinding
 import com.itl.kg.androidlabkt.getWindowHeight
-import kotlinx.android.synthetic.main.fragment_layout_behavior_lab.*
 
 /**
  *
@@ -20,6 +19,9 @@ import kotlinx.android.synthetic.main.fragment_layout_behavior_lab.*
 
 class LayoutBehaviorLabFragment : Fragment() {
 
+    private var _binding: FragmentLayoutBehaviorLabBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var bottomBehavior: BottomSheetBehavior<View>
     private lateinit var bottomSheet: View
 
@@ -27,24 +29,30 @@ class LayoutBehaviorLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_layout_behavior_lab, container, false)
+        _binding = FragmentLayoutBehaviorLabBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bottomSheet = layoutBehaviorLabFragment_bottomSheet_frameLayout
+        bottomSheet = binding.layoutBehaviorLabFragmentBottomSheetFrameLayout
         bottomBehavior = BottomSheetBehavior.from(bottomSheet)
 
         val params = bottomSheet.layoutParams
         val height =
-            getWindowHeight(requireActivity()) - layoutBehaviorLabFragment_mainText_textView.layoutParams.height
+            getWindowHeight(requireActivity()) - binding.layoutBehaviorLabFragmentMainTextTextView.layoutParams.height
 
         params.height = height
         bottomSheet.layoutParams = params
 
         // 設定Click even，點下後將BottomSheet展開
-        layoutBehaviorLabFragment_mainText_textView.setOnClickListener {
+        binding.layoutBehaviorLabFragmentMainTextTextView.setOnClickListener {
             bottomBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
     }

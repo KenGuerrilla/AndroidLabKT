@@ -12,7 +12,7 @@
 
         <Button
             style="@style/MaterialButtonWithOutline"
-            android:id="@+id/bottomSheetLab_show_button"
+            android:id="@+id/mBottomSheetLabShowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show"

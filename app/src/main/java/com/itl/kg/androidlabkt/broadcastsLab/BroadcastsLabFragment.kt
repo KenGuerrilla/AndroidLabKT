@@ -7,10 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.itl.kg.androidlabkt.R
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.ContextRegisterReceiver
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.OnCountingDoneReceiver
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.OnCountingDoneReceiver.Companion.MY_ACTION_COUNTING
@@ -18,6 +16,7 @@ import com.itl.kg.androidlabkt.broadcastsLab.receiver.OnCountingDoneReceiver.Com
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.OnCountingDoneReceiverListener
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.StartCountingDownReceiver.Companion.ACTION_START_COUNTDOWN
 import com.itl.kg.androidlabkt.broadcastsLab.receiver.PendingBroadcastReceiver
+import com.itl.kg.androidlabkt.databinding.FragmentBroadcastsLabBinding
 
 /**
  *
@@ -44,15 +43,8 @@ class BroadcastsLabFragment : Fragment() {
         private const val TAG = "BroadcastsLabFragment"
     }
 
-    private lateinit var btRegisterBroadcast: Button
-    private lateinit var btUnregisterBroadcast: Button
-
-    private lateinit var btRegisterPendingReceiver: Button
-    private lateinit var btUnregisterPendingReceiver: Button
-
-    private lateinit var btRegisterCustomBroadcastReceiver: Button
-    private lateinit var btSendCustomBroadcast: Button
-    private lateinit var btUnregisterCustomBroadcastReceiver: Button
+    private var _binding: FragmentBroadcastsLabBinding? = null
+    private val binding get() = _binding!!
 
     private var broadcastReceiver: ContextRegisterReceiver? = null
     private var pendingReceiver: PendingBroadcastReceiver? = null
@@ -65,10 +57,16 @@ class BroadcastsLabFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_broadcasts_lab, container, false)
-        initView(view)
+
+        _binding = FragmentBroadcastsLabBinding.inflate(inflater, container, false)
+
         initListener()
-        return view
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onDestroy() {
@@ -78,44 +76,32 @@ class BroadcastsLabFragment : Fragment() {
         unbindCountingDownService()
     }
 
-    private fun initView(view: View) {
-        btRegisterBroadcast = view.findViewById(R.id.mRegisterBroadcastBtn)
-        btUnregisterBroadcast = view.findViewById(R.id.mUnregisterBroadcastBtn)
-
-        btRegisterPendingReceiver = view.findViewById(R.id.mRegisterPendingReceiverBtn)
-        btUnregisterPendingReceiver = view.findViewById(R.id.mUnregisterPendingReceiverBtn)
-
-        btRegisterCustomBroadcastReceiver = view.findViewById(R.id.mBindCustomReceiverServiceBtn)
-        btSendCustomBroadcast = view.findViewById(R.id.mSendCustomBroadcastBtn)
-        btUnregisterCustomBroadcastReceiver = view.findViewById(R.id.mUnbindCustomReceiverServiceBtn)
-    }
-
     private fun initListener() {
-        btRegisterBroadcast.setOnClickListener {
+        binding.mRegisterBroadcastBtn.setOnClickListener {
             registerBroadcastReceiver()
         }
 
-        btUnregisterBroadcast.setOnClickListener {
+        binding.mUnregisterBroadcastBtn.setOnClickListener {
             unregisterBroadcastReceiver()
         }
 
-        btRegisterPendingReceiver.setOnClickListener {
+        binding.mRegisterPendingReceiverBtn.setOnClickListener {
             registerPendingReceiver()
         }
 
-        btUnregisterPendingReceiver.setOnClickListener {
+        binding.mUnregisterPendingReceiverBtn.setOnClickListener {
             unregisterPendingReceiver()
         }
 
-        btRegisterCustomBroadcastReceiver.setOnClickListener {
+        binding.mBindCustomReceiverServiceBtn.setOnClickListener {
             bindCountingDownService()
         }
 
-        btSendCustomBroadcast.setOnClickListener {
+        binding.mSendCustomBroadcastBtn.setOnClickListener {
             sendStartCountingDownBroadcast()
         }
 
-        btUnregisterCustomBroadcastReceiver.setOnClickListener {
+        binding.mUnbindCustomReceiverServiceBtn.setOnClickListener {
             unbindCountingDownService()
         }
 
@@ -220,11 +206,11 @@ class BroadcastsLabFragment : Fragment() {
     private fun getOnCountingDownListener(): OnCountingDoneReceiverListener =
         object : OnCountingDoneReceiverListener {
             override fun onCounting(msg: String) {
-                btSendCustomBroadcast.text = msg
+                binding.mSendCustomBroadcastBtn.text = msg
             }
 
             override fun onDone() {
-                btSendCustomBroadcast.text = "Send Broadcast to Receiver"
+                binding.mSendCustomBroadcastBtn.text = "Send Broadcast to Receiver"
             }
         }
 

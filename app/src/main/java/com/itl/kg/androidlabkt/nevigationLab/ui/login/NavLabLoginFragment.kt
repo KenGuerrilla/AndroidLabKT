@@ -15,6 +15,12 @@ import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabLoginViewModelFactory
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabLoginViewModel
 import com.itl.kg.androidlabkt.nevigationLab.repository.LoginResult
 
+/**
+ *  NavLabLoginFragment - 登入畫面UI
+ *
+ *  與NavLabLoginActivity共用NavLabLoginViewModel
+ *
+ */
 
 class NavLabLoginFragment : Fragment() {
 

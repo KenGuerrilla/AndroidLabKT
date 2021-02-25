@@ -9,6 +9,10 @@ import com.itl.kg.androidlabkt.nevigationLab.repository.NavLabDatabase
 import com.itl.kg.androidlabkt.nevigationLab.repository.NavLabAccountPreferencesHelper
 
 
+/**
+ *  LoginViewModel - 管理登入與儲存登入狀態
+ */
+
 class NavLabLoginViewModel : ViewModel() {
     
     companion object {

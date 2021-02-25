@@ -15,17 +15,13 @@ import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabLoginViewModel
 
 /**
  *
- *  NavLabLoginActivity
+ *  NavLabLoginActivity - 登入流程
  *
- *   底下包含登入與註冊程序
+ *  整合登入流程，與NavLabLoginFragment共用同一個NavLabLoginVIewModel
  *
- *   註冊完成後回到登入畫面，使用者無法透過返回鍵回到註冊頁面
+ *  登入成功則setResult，當NavLabLoginActivity關閉後通知MainNavLabMainActivity執行登入狀態檢查
  *
- *   登入完成後回到Detail畫面
- *
- *   Login的功能做在ActivityViewModel，方便回傳Result
- *
- *   透過ViewModel做UI間的資料溝通與傳遞，這邊就不用FragmentResultListener，感覺非常麻煩...
+ *  透過ViewModel做UI間的資料溝通與傳遞 >> 原先FragmentResultListener太過麻煩
  *
  */
 
@@ -37,7 +33,6 @@ class NavLabLoginActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "NavLabLoginActivity"
-        const val RESULT_LOGIN = "login"
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -48,8 +43,11 @@ class NavLabLoginActivity : AppCompatActivity() {
         val navController = findNavController()
         appBarConfiguration = AppBarConfiguration(navController.graph) // 需要在App Gradle設定KotlinOptions的jvmTarget版本為1.8
 
-//        initResultListener()
+        initLoginLiveData()
 
+    }
+
+    private fun initLoginLiveData() {
         viewModel.loginSuccessLiveData.observe(this, Observer {
             if (it) setResult(Activity.RESULT_OK)
         })

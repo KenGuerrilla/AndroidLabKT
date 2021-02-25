@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.itl.kg.androidlabkt.nevigationLab.repository.NavLabDatabase
 import com.itl.kg.androidlabkt.nevigationLab.repository.NavLabAccountPreferencesHelper
 
+/**
+ *  RegisterViewModel - 管理註冊流程資料操作
+ */
 
 class NavRegisterViewModel : ViewModel() {
 

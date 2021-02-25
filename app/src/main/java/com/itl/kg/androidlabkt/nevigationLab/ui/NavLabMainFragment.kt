@@ -15,6 +15,17 @@ import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabMainViewModelFactory
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabMainViewModel
 import com.itl.kg.androidlabkt.nevigationLab.ui.login.NavLabLoginActivity
 
+
+/**
+ *
+ *  NavLabMainFragment - 首頁
+ *
+ *  Detail按鈕呼叫NavLabMainViewModel方法檢查登入狀態，true則直接進入Detail畫面，反之則進入登入畫面
+ *
+ *  其註冊一個resultLauncher來監聽NavLabLoginActivity回傳之訊息，作為是否再次檢查登入狀態之判斷
+ *
+ */
+
 class NavLabMainFragment : Fragment() {
 
     companion object {

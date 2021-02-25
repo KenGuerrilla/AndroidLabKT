@@ -13,15 +13,18 @@ import com.itl.kg.androidlabkt.R
 
 /**
  *
+ *  Navigation測試Demo - 這個Demo使用Navigation來做個畫面的管理，實作幾個可能常用到的功能
+ *
+ *  NavigationLabActivity畫面包含一個Fragment container，用來顯示架構底下的Fragment畫面
+ *
+ *  其中container上方實作一個Toolbar，其交由Navigation託管顯示標題與返回鍵
+ *
+ *
+ *  備註：將Toolbar交由Navigation託管後建議不要再對其實做相關功能，避免行為上的衝突
+ *
  *  備註：關於NavHostFragment的問題，由於IDE編譯連結的情況，因此新增NavHostFragment之後在NavGraph
  *  仍會顯示not found的情況，原則上運作都沒問題，很在意的話只需要重開IDE或專案即可。
  *  可參考：https://developer.android.com/guide/navigation/navigation-getting-started#add-navhost
- *
- *  目前進入Activity之後，Toolbar的返回鍵預想是要可以回到Lab選單，但是會因為Navigation的機制進到第二層回來就會消失
- *  所以並無特別實作。
- *
- *  NavigationLabActivity要有一個ViewModel來記錄登入與註冊狀態，登入狀態存於SharedPreferences
- *
  */
 
 class NavigationLabActivity : AppCompatActivity() {

@@ -3,6 +3,10 @@ package com.itl.kg.androidlabkt.nevigationLab.repository
 import com.itl.kg.androidlabkt.nevigationLab.repository.LoginResult.Companion.RESULT_ERROR
 import com.itl.kg.androidlabkt.nevigationLab.repository.LoginResult.Companion.RESULT_OK
 
+/**
+ *  資料庫Mock物件
+ */
+
 object NavLabDatabase {
 
     const val TAG = "NavLabDatabase"

@@ -11,6 +11,14 @@ import com.itl.kg.androidlabkt.databinding.FragmentNavLabRegisterCBinding
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavRegisterViewModelFactory
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavRegisterViewModel
 
+/**
+ *
+ *  NavLabRegisterCFragment - 註冊頁面第三頁
+ *
+ *  將使用者輸入的帳號密碼透過viewModel進行註冊
+ *
+ */
+
 class NavLabRegisterCFragment : Fragment() {
 
     companion object {

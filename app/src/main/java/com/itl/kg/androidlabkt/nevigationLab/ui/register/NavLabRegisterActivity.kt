@@ -6,6 +6,23 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.itl.kg.androidlabkt.R
 
+/**
+ *  NavLabRegisterActivity - 註冊流程
+ *
+ *  這邊的流程為展示Navigation action的操作
+ *
+ *  註冊過程中途離開都應該回到NavLabRegisterAFragment
+ *
+ *  註冊完成後則要關閉Activity回到Main，並檢查是否登入成功，成功就跳到DetailFragment
+ *
+ *
+ *
+ *  ps.如果註冊流程較為複雜，則可以與各Fragment共用一個ViewModel依序完成註冊資料後送出
+ *
+ *  >> Toolbar的部分因為返回鍵與系統返回鍵行為無法一致，因此先拿掉
+ *
+ */
+
 class NavLabRegisterActivity : AppCompatActivity() {
 
     companion object {

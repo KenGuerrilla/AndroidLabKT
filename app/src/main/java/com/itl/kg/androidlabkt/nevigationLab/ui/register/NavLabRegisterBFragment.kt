@@ -8,6 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.itl.kg.androidlabkt.databinding.FragmentNavLabRegisterBBinding
 
+/**
+ *
+ *  NavLabRegisterBFragment - 註冊頁面第二頁
+ *
+ */
+
 class NavLabRegisterBFragment : Fragment() {
 
     private var _binding: FragmentNavLabRegisterBBinding? = null

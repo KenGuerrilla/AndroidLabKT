@@ -12,6 +12,16 @@ import com.itl.kg.androidlabkt.databinding.FragmentNavLabDetailBinding
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabMainViewModelFactory
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavLabMainViewModel
 
+/**
+ *
+ *  NavLabDetailFragment - 為登入成功後顯示的畫面
+ *
+ *  實做一個Logout功能清空登入狀態與帳號資訊，並回到NavLabMainFragment
+ *
+ *  使用者離開貨登出後無法使用返回鍵回到一頁
+ *
+ */
+
 class NavLabDetailFragment : Fragment() {
 
     val viewModel: NavLabMainViewModel by activityViewModels {

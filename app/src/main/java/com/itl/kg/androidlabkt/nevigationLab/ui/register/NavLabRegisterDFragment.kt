@@ -11,6 +11,16 @@ import com.itl.kg.androidlabkt.databinding.FragmentNavLabRegisterDBinding
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavRegisterViewModelFactory
 import com.itl.kg.androidlabkt.nevigationLab.mvvm.NavRegisterViewModel
 
+/**
+ *
+ *  NavLabRegisterDFragment - 註冊頁面第四頁
+ *
+ *  註冊畫面最後確認頁，使用者點下Finish才算註冊完成
+ *
+ *  註冊完成後關閉NavLabRegisterActivity回到登入畫面
+ *
+ */
+
 class NavLabRegisterDFragment : Fragment() {
 
     private val viewModel: NavRegisterViewModel by activityViewModels {

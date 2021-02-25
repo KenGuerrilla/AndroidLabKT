@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -62,6 +66,8 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlinVersion"
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentKtxVersion"
 
     // Androidx Jetpack Navigation components
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"

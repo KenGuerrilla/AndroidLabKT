@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_mainFragment_to_broadcastsLabFragment"
             app:destination="@id/broadcastsLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_navigationLabActivity"
+            app:destination="@id/navigationLabActivity" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -82,4 +85,9 @@
         android:name="com.itl.kg.androidlabkt.broadcastsLab.BroadcastsLabFragment"
         android:label="fragment_broadcasts_lab"
         tools:layout="@layout/fragment_broadcasts_lab" />
+    <activity
+        android:id="@+id/navigationLabActivity"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.NavigationLabActivity"
+        android:label="activity_navigation_lab"
+        tools:layout="@layout/activity_navigation_lab" />
 </navigation>

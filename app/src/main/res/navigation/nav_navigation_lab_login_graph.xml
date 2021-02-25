@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_navigation_lab_login_graph"
+    app:startDestination="@id/navLabLoginFragment">
+
+    <fragment
+        android:id="@+id/navLabLoginFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.login.NavLabLoginFragment"
+        android:label="fragment_nav_lab_login"
+        tools:layout="@layout/fragment_nav_lab_login" >
+        <action
+            android:id="@+id/action_navLabLoginFragment_to_navLabRegisterActivity"
+            app:destination="@id/navLabRegisterActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/navLabRegisterActivity"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.register.NavLabRegisterActivity"
+        android:label="activity_nav_lab_register"
+        tools:layout="@layout/activity_nav_lab_register" />
+</navigation>

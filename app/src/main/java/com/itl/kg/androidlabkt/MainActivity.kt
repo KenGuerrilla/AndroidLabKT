@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 
@@ -36,7 +36,12 @@ class MainActivity : AppCompatActivity() {
 
     // 找到位於MainActivity的Fragment容器
     private fun findNavController(): NavController {
-        return findNavController(R.id.mainActivity_fragment_container)
+        // 官方建議的方式
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.mainActivity_fragment_container) as NavHostFragment
+        return navHostFragment.navController
+        // 另一種方式是在xml直接使用fragment，並直接找id就可以了
+//        return findNavController(R.id.mainActivity_fragment_container)
     }
 
 }

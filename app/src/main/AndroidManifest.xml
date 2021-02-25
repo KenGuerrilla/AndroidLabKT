@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".nevigationLab.ui.NavigationLabActivity"/>
+        <activity android:name=".nevigationLab.ui.login.NavLabLoginActivity"/>
+        <activity android:name=".nevigationLab.ui.register.NavLabRegisterActivity"/>
+
+
         <service android:name=".serviceLab.service.ForegroundService"/>
         <service android:name=".serviceLab.service.BoundService"/>
         <service android:name=".serviceLab.service.MessengerService"/>

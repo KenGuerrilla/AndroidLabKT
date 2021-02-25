@@ -24,7 +24,6 @@ class KeyFrameAnimationsLabFragment : Fragment() {
     private var _binding: FragmentKeyFrameAnimationsLabStartBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var button: Button
     private var isBottom = false
 
     override fun onCreateView(

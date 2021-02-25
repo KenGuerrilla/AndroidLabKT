@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_navigation_lab_register_graph"
+    app:startDestination="@id/navLabRegisterAFragment">
+
+    <!-- app:popUpTo則代表導航到指定頁面，並將先前stack中的destination都清除 -->
+    <!-- app:popUpToInclusive="true" 表示連同目的的destination也pop掉 -->
+
+    <fragment
+        android:id="@+id/navLabRegisterAFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.register.NavLabRegisterAFragment"
+        android:label="註冊首頁A"
+        tools:layout="@layout/fragment_nav_lab_register_a" >
+        <action
+            android:id="@+id/action_navLabRegisterAFragment_to_navLabRegisterBFragment"
+            app:destination="@id/navLabRegisterBFragment"
+            app:popUpTo="@id/navLabRegisterAFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navLabRegisterBFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.register.NavLabRegisterBFragment"
+        android:label="註冊頁B"
+        tools:layout="@layout/fragment_nav_lab_register_b" >
+        <action
+            android:id="@+id/action_navLabRegisterBFragment_to_navLabRegisterCFragment"
+            app:destination="@id/navLabRegisterCFragment"
+            app:popUpTo="@id/navLabRegisterAFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navLabRegisterCFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.register.NavLabRegisterCFragment"
+        android:label="註冊頁C"
+        tools:layout="@layout/fragment_nav_lab_register_c" >
+        <action
+            android:id="@+id/action_navLabRegisterCFragment_to_navLabRegisterDFragment"
+            app:destination="@id/navLabRegisterDFragment"
+            app:popUpTo="@id/navLabRegisterAFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navLabRegisterDFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.register.NavLabRegisterDFragment"
+        android:label="註冊頁D"
+        tools:layout="@layout/fragment_nav_lab_register_d" />
+</navigation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_navigation_lab_graph"
+    app:startDestination="@id/navLabMainFragment">
+    <fragment
+        android:id="@+id/navLabMainFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.NavLabMainFragment"
+        android:label="NavigationLabMain"
+        tools:layout="@layout/fragment_nav_lab_main" >
+        <action
+            android:id="@+id/action_navLabMainFragment_to_navLabDetailFragment"
+            app:destination="@id/navLabDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navLabDetailFragment"
+        android:name="com.itl.kg.androidlabkt.nevigationLab.ui.NavLabDetailFragment"
+        android:label="NavigationLabDetail"
+        tools:layout="@layout/fragment_nav_lab_detail" />
+</navigation>

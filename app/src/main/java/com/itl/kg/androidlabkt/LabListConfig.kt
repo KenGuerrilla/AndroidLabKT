@@ -9,6 +9,7 @@ import androidx.navigation.NavDirections
  */
 
 val labList: List<LabItem> = mutableListOf(
+    LabItem("RxJavaLab", "RxJava測試範例", MainFragmentDirections.actionMainFragmentToRxJavaLabFragment()),
     LabItem("CustomView", "自定義View元件範例", MainFragmentDirections.actionMainFragmentToCustomViewLab()),
     LabItem("RoomLab", "Room與MVVM示範", MainFragmentDirections.actionMainFragmentToRoomLabFragment()),
     LabItem("BottomSheetDialogFragmentLab", "BottomSheet範例", MainFragmentDirections.actionMainFragmentToBottomSheetLabFragment()),

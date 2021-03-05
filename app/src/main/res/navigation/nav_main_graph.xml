@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_mainFragment_to_navigationLabActivity"
             app:destination="@id/navigationLabActivity" />
+        <action
+            android:id="@+id/action_mainFragment_to_rxJavaLabFragment"
+            app:destination="@id/rxJavaLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -90,4 +93,9 @@
         android:name="com.itl.kg.androidlabkt.nevigationLab.ui.NavigationLabActivity"
         android:label="activity_navigation_lab"
         tools:layout="@layout/activity_navigation_lab" />
+    <fragment
+        android:id="@+id/rxJavaLabFragment"
+        android:name="com.itl.kg.androidlabkt.rxJavaLab.RxJavaLabFragment"
+        android:label="fragment_rx_java_lab"
+        tools:layout="@layout/fragment_rx_java_lab" />
 </navigation>

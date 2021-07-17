@@ -19,7 +19,7 @@ import java.util.*
 @Entity(tableName = "roomLab_data")
 data class RoomLabDataItem(
     @ColumnInfo(name = "text") val text: String,
-    @ColumnInfo(name = "createTime") val createTime: Calendar = Calendar.getInstance(),
+    @ColumnInfo(name = "createTime") var createTime: Calendar = Calendar.getInstance(),
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var itemId: Long = 0
 ) {
     override fun toString(): String {

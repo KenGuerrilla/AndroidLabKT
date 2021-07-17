@@ -16,6 +16,10 @@ class RoomLabRepository(private val roomLabDataDao: RoomLabDataDao) {
         roomLabDataDao.insertData(item)
     }
 
+    suspend fun updateDateToList(item: RoomLabDataItem) {
+        roomLabDataDao.update(item)
+    }
+
     suspend fun deleteData(item: RoomLabDataItem) {
         roomLabDataDao.deleteDataItem(item)
     }

@@ -21,6 +21,9 @@ interface RoomLabDataDao {
     @Query("SELECT * FROM roomLab_data ORDER BY id")
     fun getDataList(): LiveData<List<RoomLabDataItem>>
 
+    @Update
+    suspend fun update(vararg roomLabDataItem: RoomLabDataItem)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(dataItem: RoomLabDataItem)
 

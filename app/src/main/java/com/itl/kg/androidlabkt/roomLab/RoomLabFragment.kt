@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -87,11 +88,19 @@ class RoomLabFragment : Fragment() {
 
     private fun initView() {
         binding.roomLabAddButton.setOnClickListener {
+            createDataItem()
+        }
+        initRecyclerView()
+    }
+
+    private fun createDataItem() {
+        if (binding.roomLabEditText.text.isBlank()) {
+            Toast.makeText(requireContext(), "Message was blank", Toast.LENGTH_SHORT).show()
+        } else {
             val item = RoomLabDataItem(binding.roomLabEditText.text.toString())
             viewModel.addDataItem(item)
             binding.roomLabEditText.editableText.clear()
         }
-        initRecyclerView()
     }
 
     private fun initRecyclerView() {
@@ -99,7 +108,15 @@ class RoomLabFragment : Fragment() {
 
         adapter.itemClickListener = object : RoomLabDataListAdapterOnItemClickListener {
             override fun onItemClick(item: RoomLabDataItem, position: Int) {
+                // update item time
+                viewModel.updateDateItem(item)
+            }
+        }
+
+        adapter.itemLongClickListener = object : RoomLabDataListAdapterOnItemLongClickListener {
+            override fun onItemLongClick(item: RoomLabDataItem, position: Int): Boolean {
                 viewModel.deleteItem(item)
+                return true
             }
         }
 

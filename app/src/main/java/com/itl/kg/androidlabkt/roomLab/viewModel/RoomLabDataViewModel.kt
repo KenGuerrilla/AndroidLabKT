@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.itl.kg.androidlabkt.roomLab.data.RoomLabDataItem
 import com.itl.kg.androidlabkt.roomLab.data.RoomLabRepository
 import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  *
@@ -21,6 +22,14 @@ class RoomLabDataViewModel internal constructor(
     fun addDataItem(item: RoomLabDataItem) {
         viewModelScope.launch {
             repository.addDataToList(item)
+        }
+    }
+
+    fun updateDateItem(item: RoomLabDataItem) {
+        viewModelScope.launch {
+            // 更新時間
+            item.createTime = Calendar.getInstance()
+            repository.updateDateToList(item)
         }
     }
 

@@ -12,13 +12,13 @@ Android實驗性Demo，主頁為Demo清單，各Demo項目由LabListConfig.kt當
 
  - BottomSheetDialogFragmentLab - 示範BottomSheetDialogFragment全螢幕實作
 
- - LayoutBehaviorLab - 示範Bottom Shㄋeet與相關元件透過CoordinatorLayout與Behavior做連動
+ - LayoutBehaviorLab - 示範Bottom Sheet與相關元件透過CoordinatorLayout與Behavior做連動
 
  - BioAuthLab - 使用BiometricsTools搭配MVVM進行簡單的Demo
 
  - WorkManagerLab - WorkManager Demo
 
- - KeyFrameAnimationsLab - ConstraintLayout簡易View元件動畫ㄋ
+ - KeyFrameAnimationsLab - ConstraintLayout簡易View元件動畫
 
  - ServiceLab - Service簡易使用與操作Demo
 

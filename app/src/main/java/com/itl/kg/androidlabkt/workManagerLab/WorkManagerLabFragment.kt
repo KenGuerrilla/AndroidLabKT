@@ -1,18 +1,24 @@
 package com.itl.kg.androidlabkt.workManagerLab
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.work.*
 import com.itl.kg.androidlabkt.databinding.FragmentWorkManagerLabBinding
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
  *
  * Work Manager Lab - WorkManager Demo
  *
+ * WorkManager用於處理一系列或需要長時間周期性的工作，而Worker建立時可回傳一個UUID用來觀察工作結果
+ *
+ *
+ * 參考資料：https://developer.android.com/topic/libraries/architecture/workmanager/advanced
  */
 
 class WorkManagerLabFragment : Fragment() {
@@ -50,18 +56,18 @@ class WorkManagerLabFragment : Fragment() {
     private fun initListener() {
 
         binding.mTaskStartBtn.setOnClickListener {
-            initTaskManager()
+            initPeriodicWorker()
         }
 
         binding.mTaskCheckBtn.setOnClickListener {
-
+            initOneTimeWorker()
         }
 
     }
 
+    private fun initPeriodicWorker() {
 
-    private fun initTaskManager() {
-
+        // 可以指定裝置狀態來觸發工作
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
@@ -77,6 +83,51 @@ class WorkManagerLabFragment : Fragment() {
 
         workManager = WorkManager.getInstance(requireContext())
             .enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.REPLACE, workRequest)
+
+    }
+
+    private fun initOneTimeWorker() {
+        val manager = WorkerManagerTools()
+        val idList = manager.initOneTimeWork(requireContext())
+
+        initLiveData(idList)
+    }
+
+
+    // 注意！使用LiveData被觸發的時機，會有回傳null的情況
+    private fun initLiveData(idList: Map<String, UUID>) {
+
+        idList[WorkerManagerTools.WORKER_FIRST_ID]?.let { id ->
+            WorkManager.getInstance(requireContext()).getWorkInfoByIdLiveData(id)
+                .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                    val result = it.outputData.getString(WorkerManagerTools.WORKER_FIRST_ID)
+                    Log.d(TAG, "First Worker Result: $result")
+                })
+        }
+
+        idList[WorkerManagerTools.WORKER_SECOND_ID]?.let { id ->
+            WorkManager.getInstance(requireContext()).getWorkInfoByIdLiveData(id)
+                .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                    val result = it.outputData.getString(WorkerManagerTools.WORKER_SECOND_ID)
+                    Log.d(TAG, "Second Worker Result: $result")
+                })
+        }
+
+        // addListener還需要研究一下
+        idList[WorkerManagerTools.WORKER_THIRD_ID]?.let { id ->
+            WorkManager.getInstance(requireContext()).getWorkInfoById(id)
+                .addListener(
+                    { Log.d(TAG, "Third Worker Result: 使用Runnable") }
+                    , { Log.d(TAG, "Third Worker Result: 這裡是Executor") })
+        }
+
+        idList[WorkerManagerTools.WORKER_FOURTH_ID]?.let { id ->
+            WorkManager.getInstance(requireContext()).getWorkInfoByIdLiveData(id)
+                .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                    val result = it.outputData.getString(WorkerManagerTools.WORKER_FOURTH_ID)
+                    Log.d(TAG, "Fourth Worker Result: $result")
+                })
+        }
 
     }
 

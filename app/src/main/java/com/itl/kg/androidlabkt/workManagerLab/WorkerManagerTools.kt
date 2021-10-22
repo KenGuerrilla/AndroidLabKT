@@ -155,8 +155,8 @@ class ThirdWorkerTask(context: Context, workerParameters: WorkerParameters)
         val output = workDataOf(WorkerManagerTools.WORKER_THIRD_ID to str)
 
         // 注意，如果回傳結果為失敗，則WorkManager不會繼續後續的工作
-//        return Result.failure(output)
-        return Result.success(output)
+        return Result.failure(output)
+//        return Result.success(output)
     }
 }
 

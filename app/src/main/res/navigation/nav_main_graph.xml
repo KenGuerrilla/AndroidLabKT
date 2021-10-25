@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_mainFragment_to_rxJavaLabFragment"
             app:destination="@id/rxJavaLabFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_coroutineLabFragment"
+            app:destination="@id/coroutineLabFragment" />
     </fragment>
     <fragment
         android:id="@+id/customViewLab"
@@ -98,4 +101,9 @@
         android:name="com.itl.kg.androidlabkt.rxJavaLab.RxJavaLabFragment"
         android:label="fragment_rx_java_lab"
         tools:layout="@layout/fragment_rx_java_lab" />
+    <fragment
+        android:id="@+id/coroutineLabFragment"
+        android:name="com.itl.kg.androidlabkt.coroutineLab.CoroutineLabFragment"
+        android:label="fragment_coroutine_lab"
+        tools:layout="@layout/fragment_coroutine_lab" />
 </navigation>
